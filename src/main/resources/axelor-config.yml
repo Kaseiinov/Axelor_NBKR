@@ -1,0 +1,35 @@
+# ========== DATABASE ==========
+db:
+  default:
+    ddl: update
+    url: jdbc:postgresql://localhost:5432/axelor_erp
+    user: axelor
+    password: axelor
+
+# ========== APPLICATION ==========
+application:
+  mode: dev
+  name: Axelor_4
+  locale: en
+
+# ========== MODULE ==========
+modules:
+  - axelor-common
+  - axelor-contact
+  - axelor-message
+
+# ========== LOGS ==========
+logging:
+  level: DEBUG
+  path: ./logs
+
+
+server:
+  port: 8080
+
+quartz:
+  jobs:
+    - name: CurrencyRateJob
+      class: com.axelor.contact.job.CurrencyRateJob
+      cron: "0 0 9 * * ?"
+      description: "???????????? ?????? ????? ? ????"
