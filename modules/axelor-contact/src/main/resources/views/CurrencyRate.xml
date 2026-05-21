@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  https://axelor.com/xml/ns/object-views/object-views_8.1.xsd">
+
+  <grid name="currency-rate-grid" title="Курсы валют" model="com.axelor.contact.db.CurrencyRate">
+    <field name="rateDate" />
+    <field name="code" />
+    <field name="name" />
+    <field name="nominal" />
+    <field name="rate" />
+  </grid>
+
+  <form name="currency-rate-form" title="Курс валюты" model="com.axelor.contact.db.CurrencyRate">
+    <panel title="Основная информация">
+      <field name="rateDate" colSpan="6"/>
+      <field name="code" colSpan="6"/>
+      <field name="name" colSpan="6"/>
+      <field name="nominal" colSpan="6"/>
+      <field name="rate" colSpan="6"/>
+    </panel>
+  </form>
+
+</object-views>
