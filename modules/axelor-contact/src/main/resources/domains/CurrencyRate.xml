@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <domain-models xmlns="http://axelor.com/xml/ns/domain-models"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models
   https://axelor.com/xml/ns/domain-models/domain-models_8.0.xsd">
 
-  <module name="axelor-contact" package="com.axelor.contact.db"/>
+    <module name="axelor-contact" package="com.axelor.contact.db"/>
 
-  <entity name="CurrencyRate" cacheable="true">
-    <string name="code" title="Код валюты" required="true" max="10"/>
-    <string name="name" title="Наименование" required="true" max="100"/>
-    <integer name="nominal" title="Номинал" required="true"/>
-    <decimal name="rate" title="Курс (KGS)" required="true" precision="18" scale="4"/>
-    <date name="rateDate" title="Дата курса" required="true"/>
-    <unique-constraint columns="code,rateDate"/>
+    <entity name="CurrencyRate" cacheable="true">
+        <string name="code" title="Код валюты" required="true" max="10"/>
+        <string name="name" title="Наименование" required="true" max="100"/>
+        <integer name="nominal" title="Номинал" required="true"/>
+        <decimal name="rate" title="Курс (KGS)" required="true" precision="18" scale="4"/>
+        <date name="rateDate" title="Дата курса" required="true"/>
+        <unique-constraint columns="code,rateDate"/>
 
-  </entity>
+    </entity>
 
 </domain-models>

@@ -30,9 +30,10 @@ public class CurrencyRateServiceImpl implements CurrencyRateService {
     public void fetchAndSave() {
         log.info("Начало загрузки курсов валют с НБКР");
         try {
-            InputStream stream   = httpClient.fetchRatesStream();
-            Document    document = parser.fetchDocument(stream);
-            LocalDate   rateDate = parser.parseDate(document);
+
+            InputStream stream = httpClient.fetchRatesStream();
+            Document document = parser.fetchDocument(stream);
+            LocalDate rateDate = parser.parseDate(document);
 
             log.info("Дата курса: {}", rateDate);
 

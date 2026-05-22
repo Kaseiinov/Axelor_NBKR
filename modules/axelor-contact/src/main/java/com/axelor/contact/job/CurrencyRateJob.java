@@ -17,7 +17,7 @@ public class CurrencyRateJob implements Job {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        log.info("CRON: Запуск автоматической загрузки курсов валют...");
+        log.info("CRON: Запуск автоматической загрузки курсов валют");
         try {
             currencyRateService.fetchAndSave();
             log.info("CRON: Загрузка курсов завершена успешно.");
