@@ -7,6 +7,8 @@ axelor {
 }
 
 dependencies {
+//    implementation "com.axelor:axelor-quartz:${axelorVersion}"
+
     compileOnly 'org.projectlombok:lombok:1.18.32'
     annotationProcessor 'org.projectlombok:lombok:1.18.32'
 }
