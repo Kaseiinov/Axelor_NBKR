@@ -14,10 +14,18 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class NbkrXmlParser {
 
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+    private static final Map<String, String> CURRENCY_NAMES = Map.ofEntries(
+            Map.entry("USD", "Доллар США"),
+            Map.entry("EUR", "Евро"),
+            Map.entry("CNY", "Китайский юань"),
+            Map.entry("KZT", "Казахстанский тенге"),
+            Map.entry("RUB", "Российский рубль")
+    );
 
     public LocalDate parseDate(Document document) {
         String dateStr = document.getDocumentElement().getAttribute("Date");
@@ -30,9 +38,12 @@ public class NbkrXmlParser {
 
         for (int i = 0; i < nodes.getLength(); i++) {
             Element el = (Element) nodes.item(i);
+            String isoCode = el.getAttribute("ISOCode");
+            String name = CURRENCY_NAMES.getOrDefault(isoCode, isoCode);
+
             result.add(new CurrencyRateDto(
-                    el.getAttribute("ISOCode"),
-                    getTagValue("Name", el),
+                    isoCode,
+                    name,
                     Integer.parseInt(getTagValue("Nominal", el)),
                     new BigDecimal(getTagValue("Value", el).replace(",", "."))
             ));
